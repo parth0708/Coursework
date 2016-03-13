@@ -1,0 +1,12 @@
+x1 <- c(5.79,1579.52,2323.70)
+x2 <- c(68.8,108.29,110.29,426.07,1067.60)
+y1 = log(x1)
+y2 = log(x2)
+Diff = mean(y1) - mean(y2)
+
+g1var = var(y1)
+g2var = var(y2)
+SD_pooled = sqrt((((length(y1)-1)*g1var) + ((length(y2)-1)*g2var))/(length(y1)+length(y2)-2))
+SE = SD_pooled*(sqrt((1/length(y1)) + (1/length(y2))))
+n = length(y1) + length(y2)
+Diff + c(-qt(0.975,df = n-2)*SE,qt(0.975,df = n-2)*SE) 
