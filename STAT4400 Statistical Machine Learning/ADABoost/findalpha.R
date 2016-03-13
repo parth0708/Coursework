@@ -1,0 +1,1 @@
+findalpha <- function(err) return(log((1-err)/err)) #function to find alpha
